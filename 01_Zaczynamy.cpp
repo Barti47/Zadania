@@ -1,4 +1,4 @@
-//Ćwiczenie 1
+//Cwiczenie 1
 #include <iostream>
 
 using namespace std;
