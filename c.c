@@ -115,3 +115,22 @@ int main(void)
     return 0;
 }
 //Poprosic uzytkownika o wprowadzenie liczby n i potem o wprowadzenie n liczb z klawiatury sume ktorych nalezy obliczyc i wyswietlic na ekranie
+#include <stdio.h>
+
+int main(void)
+{
+    unsigned int i=0,suma=0,n=0;
+	int liczba=0;
+    printf("Program liczacy sume liczb podawanych przez uzytkownika n razy\n");
+	printf("Podaj liczbe n\n");
+	scanf("%d",&n);
+    while(i<n)
+    {
+		printf("Podaj liczbe ktora chcesz zsumowac:");
+		scanf("%d",&liczba);
+        suma+=liczba;
+        i++;
+    }
+    printf("Suma liczb wynosi %d \n",suma);
+    return 0;
+}
