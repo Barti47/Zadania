@@ -142,6 +142,7 @@ int main(void)
 {
     int MIN,MAX,IMAX,IMIN=0;
     int tab[10];
+
     printf("Podaj 10 liczb\n");
     for(unsigned int i= 0; i<10; i++)
     {
@@ -167,9 +168,10 @@ int main(void)
             MAX=tab[i];
             IMAX=i;
         }
+
     }
     printf("Najmniejsza liczba jest %d. %d, a najwieksza %d. %d", IMIN, MIN, IMAX, MAX);
 
     return 0;
+    //wyswietlic wszystkie pozycje np najmiejsza liczba 10 na pozycji 1,5
 }
-
