@@ -134,3 +134,42 @@ int main(void)
     printf("Suma liczb wynosi %d \n",suma);
     return 0;
 }
+
+//26.02.2022
+#include <stdio.h>
+
+int main(void)
+{
+    int MIN,MAX,IMAX,IMIN=0;
+    int tab[10];
+    printf("Podaj 10 liczb\n");
+    for(unsigned int i= 0; i<10; i++)
+    {
+        scanf("%d",&tab[i]);
+    }
+    for(unsigned int i = 0; i<10; i++)
+    {
+        printf("%d. %d \n",i,tab[i]);
+    }
+
+    MIN=MAX=tab[0];
+    printf("\n");
+
+    for(unsigned int i= 0; i<10; i++)
+    {
+        if(MIN>tab[i])
+        {
+            MIN=tab[i];
+            IMIN=i;
+        }
+        else if(MAX<tab[i])
+        {
+            MAX=tab[i];
+            IMAX=i;
+        }
+    }
+    printf("Najmniejsza liczba jest %d. %d, a najwieksza %d. %d", IMIN, MIN, IMAX, MAX);
+
+    return 0;
+}
+
