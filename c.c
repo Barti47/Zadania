@@ -175,3 +175,41 @@ int main(void)
     return 0;
     //wyswietlic wszystkie pozycje np najmiejsza liczba 10 na pozycji 1,5
 }
+//27.02.2022
+#include <stdio.h>
+
+int main(void)
+{
+    double tab[4];
+    double MAX;
+    printf("Podaj 4 liczby\n");
+
+    for(unsigned int i=0;i<4;i++)
+    {
+        scanf("%lf",&tab[i]);
+    }
+
+
+    for(unsigned int i=0;i<4;i++)
+    {
+        for(unsigned int j=i+1;j<4;++j)
+        {
+            if(tab[i] < tab[j])
+            {
+                printf("i=%d j=%d\n",i,j);
+                MAX = tab[i];
+                printf("1.MAX %lf = tab[i] %lf\n",MAX,tab[i]);
+                tab[i] = tab[j];
+                printf("2.tab[i] %lf = tab[j] %lf;\n",tab[i],tab[j]);
+                tab[j] = MAX;
+                printf("3.tab[j] %lf = MAX %lf;\n\n",tab[j],MAX);
+            }
+        }
+    }
+
+    for(unsigned int i=0;i<4;i++)
+    {
+        printf("%d %lf\n",i,tab[i]);
+    }
+    return 0;
+}
