@@ -176,6 +176,11 @@ int main(void)
     //wyswietlic wszystkie pozycje np najmiejsza liczba 10 na pozycji 1,5
 }
 //27.02.2022
+/*
+wczytac 2 liczby wieksza najpierw pozniej mniejsza, jezeli rowne obojetnie
+3 liczby malejaco
+zapoznac sie z algorytmami, wybrac ulubiony, schemat blokowy, przygotowac prezentacje(?)
+*/
 #include <stdio.h>
 
 int main(void)
