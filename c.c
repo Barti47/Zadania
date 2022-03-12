@@ -218,3 +218,118 @@ int main(void)
     }
     return 0;
 }
+
+12.03.2022
+#include <stdio.h>
+#define NAZWA "MEGATHINK, INC."
+#define ADRES "10 Megabuck Plaza"
+#define MIEJSCOWOSC "Megapolis, CA 94904"
+#define GRANICA 65
+
+void gwiazdki(void);
+
+int main(void)
+{
+    gwiazdki();
+    printf("%s\n", NAZWA);
+    printf("%s\n", ADRES);
+    printf("%s\n", MIEJSCOWOSC);
+    gwiazdki();
+    return 0;
+}
+void gwiazdki(void)
+{
+    int licznik;
+
+    for(licznik = 1; licznik <= GRANICA; licznik++)
+        putchar('*');
+    putchar('\n');
+}
+
+#include <stdio.h>
+#include <string.h>
+#define NAZWA "MEGATHINK, INC."
+#define ADRES "10 Megabuck Plaza"
+#define MIEJSCOWOSC "Megapolis, CA 94904"
+#define GRANICA 65
+#define ODSTEP ' '
+
+void n_znak(char ch, int num);
+
+int main(void)
+{
+    int odstepy;
+
+    n_znak('*', GRANICA);
+    putchar('\n');
+    n_znak(ODSTEP, 25);
+    printf("%s\n", NAZWA);
+    odstepy = (65 - strlen(ADRES)) / 2;
+    n_znak(ODSTEP, odstepy);
+    printf("%s\n", ADRES);
+    n_znak(ODSTEP, (65 - strlen(MIEJSCOWOSC)) / 2);
+    printf("%s\n", MIEJSCOWOSC);
+    n_znak('*', GRANICA);
+    putchar('\n');
+    return 0;
+}
+
+void n_znak(char ch, int num)
+{
+    int licznik;
+
+    for(licznik = 1; licznik <= num; licznik++)
+        putchar(ch);
+}
+
+#include <stdio.h>
+
+int imin(int, int);
+
+int main(void)
+{
+    int zlo1,zlo2;
+
+    printf("Podaj dwie liczby calkowite (q konczy program):\n");
+    while(scanf("%d %d", &zlo1, &zlo2) == 2)
+    {
+        printf("Mniejsza liczba sposrod %d i %d jest %d.\n", zlo1, zlo2, imin(zlo1, zlo2));
+        printf("Podaj dwie liczby calokowite (q konczy program):\n");
+    }
+    return 0;
+}
+int imin(int n, int m)
+{
+    int min;
+    if(n<m)
+        min=n;
+    else
+        min=m;
+    return min;
+}
+
+
+#include <stdio.h>
+
+int imax(int, int);
+
+int main(void)
+{
+    printf("Wieksza liczba z %d i %d jest %d.\n", 3, 5, imax(3, 5));
+    printf("Wieksza liczba z %d i %d  jest %d.\n", 3, 5, imax(3.0, 5.0));
+    return 0;
+}
+int imax(n, m)
+int n,m;
+{
+    int max;
+
+    if(n>m)
+        max = n;
+    else
+        max = m;
+    return max;
+}
+
+
+
