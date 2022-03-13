@@ -349,6 +349,188 @@ void gora_i_dol(int n)
     printf("POZIOM %d\n", n);
 }
 
+#include <stdio.h>
+
+long silnia(int n);
+
+int main(void)
+{
+    int num;
+
+    printf("Ten program oblicza silnie.\n");
+    printf("Podaj liczbe z przedzialu 0-15 (q konczy program):\n");
+    while(scanf("%d", &num) == 1)
+    {
+        if (num < 0)
+            printf("Zadnych liczb ujemnych prosze!\n");
+        else if (num > 15)
+            printf("Wartosc nie moze przekraczac 15.\n");
+        else
+            printf("%d silnia = %ld\n", num, silnia(num));
+        printf("Podaj liczbe z przedzialu 0-15 (q konczy program):\n");
+    }
+    return 0;
+}
+
+long silnia(int n)
+{
+    long odp;
+
+    for (odp = 1; n > 1; n--)
+        odp *= n;
+    return odp;
+}
+
+#include <stdio.h>
+
+long rsilnia(int n);
+
+int main(void)
+{
+    int num;
+
+    printf("Ten program oblicza silnie.\n");
+    printf("Podaj liczbe z przedzialu 0-15 (q konczy program):\n");
+    while(scanf("%d", &num) == 1)
+    {
+        if (num < 0)
+            printf("Zadnych liczb ujemnych prosze!\n");
+        else if (num > 15)
+            printf("Wartosc nie moze przekraczac 15.\n");
+        else
+            printf("%d silnia = %ld\n", num, rsilnia(num));
+        printf("Podaj liczbe z przedzialu 0-15 (q konczy program):\n");
+    }
+    return 0;
+}
+
+long rsilnia(int n)
+{
+    long odp;
+
+    if (n > 0)
+        odp = n * rsilnia(n-1);
+    else
+        odp = 1;
+    return odp;
+}
+
+
+#include <stdio.h>
+
+void do_binar(int n);
+
+int main(void)
+{
+    int liczba;
+    printf("Podaj liczbe calkowita (q konczy program):\n");
+    while (scanf("%d", &liczba) == 1)
+    {
+        printf("Odpowiednik dwojkowy: ");
+        do_binar(liczba);
+        putchar('\n');
+        printf("Podaj liczbe calkowita (q konczy program):\n");
+    }
+    return 0;
+}
+void do_binar(int n)
+{
+    int r;
+    r = n % 2;
+    if (n >= 2)
+        do_binar(n / 2);
+    putchar('0' + r);
+    return;
+}
+
+oplaty.c
+#include <stdio.h>
+#include "hotel.h"
+
+int main(void)
+{
+    int noce;
+    double hotel;
+    int kod;
+
+    while ((kod = menu()) != 'QUIT')
+    {
+        switch(kod)
+        {
+            case 1: hotel = HOTEL1;
+                    break;
+            case 2: hotel = HOTEL2;
+                    break;
+            case 3: hotel = HOTEL3;
+                    break;
+            case 4: hotel = HOTEL4;
+                    break;
+            default:hotel = 0.0;
+                    printf("Ups!\n");
+                    break;
+        }
+        noce = pobierz_noce();
+        pokaz_cene(hotel, noce);
+    }
+    return 0;
+}
+hotel.c
+#include <stdio.h>
+#include "hotel.h"
+
+int menu(void)
+{
+    int kod, stan;
+
+    printf("\n%s%s\n", GWIAZDKI, GWIAZDKI);
+    printf("Podaj numer hotelu:\n");
+    printf("1) Marek Antoniusz           2) Olimpijski\n");
+    printf("3) U Marynarza               4) Savoy\n");
+    printf("5) koniec\n");
+    printf("%s%s\n", GWIAZDKI, GWIAZDKI);
+    while ((stan = scanf("%d", &kod)) != 1 || (kod < 1 || kod > 5))
+    {
+        if (stan != 1)
+            scanf("%*s");
+        printf("Podaj liczbe z przedzialu od 1 do 5.\n");
+    }
+    return kod;
+}
+int pobierz_noce(void)
+{
+    int noce;
+
+    printf("Ile nocy bedzie potrzebne? ");
+    while (scanf("%d", &noce) != 1)
+    {
+        scanf("%*s");
+        printf("Podaj liczbe calkowita, np. 2.\n");
+    }
+    return noce;
+}
+void pokaz_cene(double hotel, int noce)
+{
+    int n;
+    double suma = 0.0;
+    double przelicznik = 1.0;
+
+    for (n = 1; n <= noce; n++, przelicznik *= RABAT)
+        suma += hotel * przelicznik;
+    printf("Calkowity koszt pobytu wyniesie %0.2f $.\n",suma);
+}
+
+hotel.h 
+#define KONIEC 5
+#define HOTEL1 50.00
+#define HOTEL2 55.00
+#define HOTEL3 80.00
+#define HOTEL4 100.00
+#define RABAT 0.95
+#define GWIAZDKI "****************************"
+int menu(void);
+int pobierz_noce(void);
+void pokaz_cene(double, int);
+
 
 
 
