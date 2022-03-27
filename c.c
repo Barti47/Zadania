@@ -532,6 +532,119 @@ int pobierz_noce(void);
 void pokaz_cene(double, int);
 
 
+#include <stdio.h>
+#define ROZMIAR 4
+
+int main(void)
+{
+    short daty[ROZMIAR], *ptc, index;
+    double oplaty[ROZMIAR], *ptz;
+
+    ptc=daty;
+    ptz=oplaty;
+    printf("%25s %10s\n", "short", "double");
+    for (index=0; index<ROZMIAR; index++)
+        printf("wskazniki + %d: %10p %10p\n", index, ptc+index, ptz+index);
+    return 0;
+}
+
+#include <stdio.h>
+#define MIESIACE 12
+
+int main(void)
+{
+    int dni[MIESIACE]={31,28,31,30,31,30,31,31,30,31,30,31};
+    int index;
+
+    for (index=0; index<MIESIACE; index++)
+        printf("Miesiac %d ma %d dni.\n", index+1, *(dni + index));
+    return 0;
+}
+
+#include <stdio.h>
+#define ROZMIAR 10
+long sumuj(int tab[], int n);
+
+int main(void)
+{
+    int kulki[ROZMIAR]={20, 10, 5, 39, 4, 16, 19, 26, 31, 20};
+    long wynik;
+
+    wynik=sumuj(kulki, ROZMIAR);
+    printf("Calkowita liczba kulek wynosi %ld.\n", wynik);
+    printf("Rozmiar tablicy kulki wynosi %d bajtow.\n", sizeof kulki);
+    return 0;
+}
+long sumuj(int tab[], int n)
+{
+    int i;
+    long suma=0;
+
+    for(i=0;i<n;i++)
+        suma+=tab[i];
+    printf("Rozmiar tablicy tab wynosi %d bajtow.\n", sizeof tab);
+    return suma;
+}
+
+#include <stdio.h>
+#define ROZMIAR 10
+long sumujw(int *poczatek, int *koniec);
+
+int main(void)
+{
+    int kulki[ROZMIAR]={20, 10, 5, 39, 4, 16, 19, 26, 31, 20};
+    long wynik;
+
+    wynik=sumujw(kulki, kulki + ROZMIAR);
+    printf("Calkowita liczba kulek wynosi %ld.\n", wynik);
+    return 0;
+}
+long sumujw(int *poczatek, int *koniec)
+{
+    long suma=0;
+
+    while (poczatek < koniec)
+    {
+        suma+=*poczatek;
+        poczatek++;
+    }
+    return suma;
+}
+
+#include <stdio.h>
+int dane[2] = {100, 300};
+int wiecejdanych[2]= {200, 400};
+
+int main(void)
+{
+    int *w1, *w2, *w3;
+
+    w1= w2 = dane;
+    w3= wiecejdanych;
+    printf("*w1++ = %d, *++w2 = %d, (*w3)++ = %d\n", *w1++, *++w2, (*w3)++);
+    printf("*w1 = %d, *w2 = %d, *w3 = %d\n",*w1,*w2,*w3);
+    return 0;
+}
+
+#include <stdio.h>
+int main(void)
+{
+    int urna[3] = {100, 200, 300};
+    int *wsk1, *wsk2;
+    wsk1=urna;
+    wsk2=&urna[2];
+    printf("wsk1 = %p, *wsk1 = %d, &wsk1 = %p\n", wsk1, *wsk1, &wsk1);
+    wsk1++;
+    printf("wartosci po wsk1++\n");
+    printf("wsk1 = %p, *wsk1 = %d, &wsk1 = %p\n", wsk1, *wsk1, &wsk1);
+    printf("wsk2 = %p, *wsk2 = %d, &wsk2 = %p\n", wsk2, *wsk2, &wsk2);
+    ++wsk2;
+    printf("wartosci po ++wsk2\n");
+    printf("wsk2 = %p, *wsk2 = %d, &wsk2 = %p\n", wsk2, *wsk2, &wsk2);
+    printf("wsk2 - wsk1 = %d\n", wsk2-wsk1);
+    return 0;
+}
+
 
 
 
