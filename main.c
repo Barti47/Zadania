@@ -24,5 +24,7 @@ int tablicanxm(int n, int m)
     for(int i=1; i<n; i++)
         matrix[i]=matrix[0]+i*n;
 
-//napisy(odwrocic, po³aczyc, policzyc), struktury, tablice(mnozenie, przekazac)
+//napisy(odwrocic, polaczyc, policzyc), struktury, tablice(mnozenie, przekazac)
+//6,7 rozdzial zadania 21.05.2022
+//1,2,3,4,5,6,7 kol rozdzialy w zadania
 }
