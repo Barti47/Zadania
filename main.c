@@ -24,5 +24,5 @@ int tablicanxm(int n, int m)
     for(int i=1; i<n; i++)
         matrix[i]=matrix[0]+i*n;
 
-
+//napisy(odwrocic, po³aczyc, policzyc), struktury, tablice(mnozenie, przekazac)
 }
